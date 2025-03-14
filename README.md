@@ -1,0 +1,41 @@
+
+
+# Minimal RTOS Kernel (MiROS)
+### Designed with simplicity in mind to demonstrate the core concepts of a Real Time Operating System: 
+- illustrates the core concepts of how an RTOS kernel is designed an written in C
+- preemptive scheduling of threads
+- fast priority-based scheduler
+- designed to meet hard real-time demands using thread priorities
+- demonstrates using RMS (Rate Monotonic Scheduling) sometimes also called RMA
+- based on the excellent teaching by Quantum Leaps, Inc!
+### Rate Monotonic Scheduling (RMS)
+Priority-based scheduling of blocking threads allows for meeting hard real-time deadlines. Priorities can be assigned to threads using concepts from RMS:
+- assign higher priorities to threads with higher rates than threads with lower rates (ie, shorter period threads get higher priority)
+- find the CPU utilization of each thread by calculating the thread's execution time and dividing by the thread's period:  C(n)/T(n)
+- add the CPU utilization of all threads:  C(1)/T(1) + ... + C(n)/T(n)
+- if the total utilization is below the theoretical bound, all threads in the set are guaranteed to meet their hard real-time deadlines
+- in practice, keep the utilization below 70%
+
+For example, in the code there are two threads, blinky1 and blinky2:
+
+	blinky1 has an execution time of 1.2ms and a period of 2ms, so the cpu utilization is 60%
+
+	blinky2 has an execution time of 3.6ms and a period of 54ms, so the cpu utilization is 6%
+
+	60% + 6% = 66%, which is below 70% so both threads will be able to meet their hard real-time deadlines
+
+Additional considerations:
+- use worst case for aperiodic tasks (shortest time between activations
+	and longest execution time)
+- prioritize soft real time threads lower 
+### Sub-directories
+```
+|
++---CMSIS           - CMSIS (Cortex Microcontroller Software Interface Standard)
+|
++---ek-tm4c123gxl   - support code for EK-TM4C123GXL (TivaC Launchpad) board
+|
+\---tm4c123-keil
+        ...
+        lesson.uvprojx - KEIL project for TM4C123 (TivaC LaunchPad)
+```
