@@ -8,7 +8,8 @@ uint32_t stack_blinky1[40] __attribute__ ((aligned (8)));
 OSThread blinky1; /* pointer to current top of stack */
 void main_blinky1() {
 	/* while loop has a total period of 2 ms */ 
-	/* you can verify using a gp timer like this: */
+	/* you can verify using a general purpose
+	   timer like this: */
 	uint32_t begin;
     uint32_t end;
     uint32_t period;
@@ -18,7 +19,7 @@ void main_blinky1() {
 		
 		begin = TIMER1->TAV; 
 		uint32_t volatile i;
-		for (i = 1500U; i!=0U; --i) { // for loop takes 1.2ms, slight 
+		for (i = 1500U; i!=0U; --i) { // for loop takes 1.2ms, slightly 
 			BSP_ledGreenOn();         // longer than system clock tick
 			BSP_ledGreenOff();
 		}
@@ -55,12 +56,12 @@ int main(void) {
 	OSInit(stack_idleThread, sizeof(stack_idleThread)); 
 	
 	OSThread_start( &blinky1,
-					2U,
+					5U,
 					&main_blinky1,
 					stack_blinky1, sizeof(stack_blinky1) );
 	
 	OSThread_start( &blinky2,
-					5U,
+					1U,
 					&main_blinky2,
 					stack_blinky2, sizeof(stack_blinky2) );
 	

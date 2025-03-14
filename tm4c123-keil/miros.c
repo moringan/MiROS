@@ -9,9 +9,7 @@
 * reasons, the software is generally NOT intended or recommended for use
 * in commercial applications.
 *
-* From the excellent tutorials by Quantum Leaps!
-*
-* Copyright (C) 2025 Mike Stapleton. All Rights Reserved.
+* Copyright (C) 2025 CMS. All Rights Reserved.
 *
 * SPDX-License-Identifier: GPL-3.0-or-later
 *
@@ -149,11 +147,11 @@ void OSSched(void) {
 
 void OSThread_start (
 		OSThread *me,  /*  the thread object  */
-		uint8_t prio,
-		OSThreadHandler threadHandler,
+		uint8_t prio,  /*  thread priority */
+		OSThreadHandler threadHandler, 
 		void *stkSto, uint32_t stkSize ) {
 
-    /* round down stack top to 8 byte boundary 
+    /* round down stack bottom to 8 byte boundary 
 	   stack grows from hi to lo memory for cortex m
 	   -note sp is one word below the top of the stack */
 	uint32_t *sp = (uint32_t *)((((uint32_t)stkSto + stkSize) / 8) * 8);
@@ -189,7 +187,7 @@ void OSThread_start (
 	/* save the top of the stack in the thread's attribute */
 	me->sp = sp;
 	
-	/* round up the bottom of the stack to the 8-byte boundary */
+	/* round up the top of the stack to the 8-byte boundary */
 	stk_limit = (uint32_t *)(((((uint32_t)stkSto - 1U) / 8) + 1U) * 8);
 	
 	/* prefill the unused part of the stack with 0xDEADBEEF */

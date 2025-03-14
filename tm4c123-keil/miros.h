@@ -11,7 +11,7 @@
 *
 * From the excellent tutorials by Quantum Leaps!
 *
-* Copyright (C) 2025 Mike Stapleton. All Rights Reserved.
+* Copyright (C) 2025 CMS. All Rights Reserved.
 *
 * SPDX-License-Identifier: GPL-3.0-or-later
 *
