@@ -8,7 +8,7 @@
 - uses a fast priority-based scheduler
 - designed to meet hard real-time demands using thread priorities
 - demonstrates using RMS (Rate Monotonic Scheduling) sometimes also called RMA
-- from the excellent teachings by Quantum Leaps, LLC!
+- from the excellent tutorials by Quantum Leaps, LLC!
 
 ### Rate Monotonic Scheduling (RMS)
 Priority-based scheduling of blocking threads allows for meeting hard real-time deadlines. Priorities can be assigned to threads using concepts from RMS:
