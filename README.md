@@ -1,13 +1,15 @@
 
 
 # Minimal RTOS Kernel (MiROS)
-### Designed with simplicity in mind to demonstrate the core concepts of a Real Time Operating System: 
-- illustrates the core concepts of how an RTOS kernel is designed an written in C
-- preemptive scheduling of threads
-- fast priority-based scheduler
+### Designed with simplicity in mind to demonstrate the core concepts of a Real Time Operating System
+- a usable, minimal RTOS that can multi-task up to 32 threads
+- illustrates the core concepts of how a RTOS kernel is designed and written in C
+- shows how to implement preemptive scheduling of threads
+- uses a fast priority-based scheduler
 - designed to meet hard real-time demands using thread priorities
 - demonstrates using RMS (Rate Monotonic Scheduling) sometimes also called RMA
-- based on the excellent teaching by Quantum Leaps, Inc!
+- from the excellent teachings by Quantum Leaps, LLC!
+
 ### Rate Monotonic Scheduling (RMS)
 Priority-based scheduling of blocking threads allows for meeting hard real-time deadlines. Priorities can be assigned to threads using concepts from RMS:
 - assign higher priorities to threads with higher rates than threads with lower rates (ie, shorter period threads get higher priority)
@@ -16,7 +18,7 @@ Priority-based scheduling of blocking threads allows for meeting hard real-time 
 - if the total utilization is below the theoretical bound, all threads in the set are guaranteed to meet their hard real-time deadlines
 - in practice, keep the utilization below 70%
 
-For example, in the code there are two threads, blinky1 and blinky2:
+For example, in main.c there are two periodic threads, blinky1 and blinky2:
 
 	blinky1 has an execution time of 1.2ms and a period of 2ms, so the cpu utilization is 60%
 
@@ -28,6 +30,15 @@ Additional considerations:
 - use worst case for aperiodic tasks (shortest time between activations
 	and longest execution time)
 - prioritize soft real time threads lower 
+
+
+### Source Files
+```
+MiROS/tm4c123-keil/miros.h & miros.c     MiROS API and implementation
+MiROS/tm4c123-keil/bsp.h & bsp.h         Board Support Package for TivaC
+MiROS/tm4c123-keil/main.c                User Application 
+```
+
 ### Sub-directories
 ```
 |
