@@ -47,8 +47,8 @@ void OS_onStartup(void) {
 	NVIC_SetPriority(SysTick_IRQn, 0U);
 	
 	/* User enabled interrupt and their priorities ... */
-	NVIC->ISER[0] |= (1U << 21); //timer 1A interrupt enable
-	NVIC_SetPriority(SysTick_IRQn, 1U);
+	/*NVIC->ISER[0] |= (1U << 21); //timer 1A interrupt enable
+	NVIC_SetPriority(TIMER1A_IRQn, 1U);*/
 }
 
 /* application can perform processing here */

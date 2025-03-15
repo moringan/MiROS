@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\dbg\lesson.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\dbg\lesson.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Fri Mar 14 16:53:30 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Sat Mar 15 09:47:44 2025
 <BR><P>
 <H3>Maximum Stack Usage =         88 bytes + Unknown(Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -740,7 +740,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_idleThread
 </UL>
 
-<P><STRONG><a name="[98]"></a>OS_onStartup</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, bsp.o(.text.OS_onStartup))
+<P><STRONG><a name="[98]"></a>OS_onStartup</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, bsp.o(.text.OS_onStartup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = OS_onStartup &rArr; SystemCoreClockUpdate &rArr; getOscClk
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
@@ -828,8 +828,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[7b]"></a>main_blinky1</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, main.o(.text.main_blinky1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = main_blinky1 &rArr; OS_delay &rArr; OSSched &rArr; Q_onAssert
+<P><STRONG><a name="[7b]"></a>main_blinky1</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, main.o(.text.main_blinky1))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = main_blinky1 &rArr; OS_delay &rArr; OSSched &rArr; Q_onAssert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d

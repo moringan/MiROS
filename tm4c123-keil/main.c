@@ -12,8 +12,7 @@ void main_blinky1() {
 	   timer like this: */
 	uint32_t begin;
     uint32_t end;
-    uint32_t period;
-    volatile float time_ms;
+    float time_ms;
 	/* while loop to be measured */
 	while (1) {
 		
@@ -26,9 +25,8 @@ void main_blinky1() {
 		OS_delay(1U); // blocks for 1 tick, until the next system interrupt
 		end = TIMER1->TAV;
 		
-		/* now calculate the execution time */
-		period = begin - end; /* timer is down-counter */
-		time_ms = period * .00000002 * 1000; /* 50mhz so clock tick is 20ps */
+		/* now calculate the execution time in ms */
+		time_ms = (begin - end) * .00000002 * (float)1000; /* 50mhz so clock tick is 20ps */
     }
 }
 
